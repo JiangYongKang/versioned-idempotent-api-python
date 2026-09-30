@@ -1,12 +1,12 @@
+"""根入口：保留原启动方式，转发到包内 FastAPI 应用。"""
+
+from __future__ import annotations
+
 import uvicorn
-from fastapi import FastAPI
 
-app = FastAPI()
+from versioned_orders.api import create_app
 
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+app = create_app()
 
 
 if __name__ == "__main__":
